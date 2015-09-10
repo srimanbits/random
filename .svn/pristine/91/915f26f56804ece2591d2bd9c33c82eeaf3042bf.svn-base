@@ -1,0 +1,19 @@
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+   <persistence-unit name="hrms" transaction-type="RESOURCE_LOCAL">
+  
+       <properties>
+<!--           <property name="hibernate.hbm2ddl.auto" value="update"/> -->
+ <property name="hibernate.show_sql" value="false" />
+          <property name="hibernate.default_schema" value="Review"/>
+           <property name="hibernate.cache.use_second_level_cache" value="true"/>
+           <property name="hibernate.cache.use_query_cache"  value="true"/>
+          <property name="hibernate.cache.provider_class" value="net.sf.ehcache.hibernate.SingletonEhCacheProvider"/>
+           <property name="hibernate.cache.use_structured_entries" value="true"/>         
+           <property name="net.sf.ehcache.configurationResourceName" value="/hrms-hibernate-ehcache.xml"/>
+       </properties>
+   </persistence-unit>
+   
+</persistence>

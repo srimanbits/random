@@ -1,0 +1,194 @@
+.objective {
+	width: 700 px;
+	height: auto;
+	/* margin-left: 50px; */
+}
+
+
+.objective * {
+	float: left;
+}
+
+
+
+.objective .evaluatingPerformance {
+	width: 764px;
+	margin-top: 20px;
+	background-color: #C2E3F4;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.objective .objectiveDetails {
+	width: 764px;
+	background-color: rgba(11, 159, 245, 0.21);
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.objective .comments {
+	width: 680px;
+}
+
+.objective .title {
+	width: 754px;
+	/*background-color: buttonface;*/
+	font-weight: bold; 
+}
+
+.objective .subTitleSmall {
+	width: 110px;
+	font-weight: bold; 
+}
+
+.objective .subTitleMedium {
+	width: 250px;
+ 	font-weight: bold; 
+}
+
+.objective .verySmallContent {
+	width: 500px;
+}
+
+.objective .smallContent {
+	width: 575px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+}
+
+.objective .mediumContent {
+	width: 575px;
+}
+
+.objective .bigContent {
+	width: 764px;
+}
+
+.objective textarea { /* vertical-align: top; */
+	transition: height 0.2s;
+	-webkit-transition: height 0.2s;
+	-moz-transition: height 0.2s;
+	border-radius: 10px;
+}
+
+.objective .verySmallContent input {
+	width: 100px;
+}
+
+.objective .smallContent textarea {
+	width: 640px;
+	min-height: 35px;
+	max-height: 50px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+}
+
+.objective .mediumContent textarea {
+	width: 640px;
+	min-height: 100px;
+	max-height: 200px;
+	overflow: scroll;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+}
+
+.objective .bigContent textarea {
+	width: 750px;
+	min-height: 100px;
+	max-height: 200px;
+	overflow: scroll;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+}
+
+.objective .evaluatingPerformance .mainTitle {
+	width: 764px;
+	background-color: yellow;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 15px;
+}
+
+.objective .row {
+	width: 780px;
+	padding-left: 5px;
+	height: auto;
+	padding-bottom: 5px;
+	padding-top:5px;
+}
+
+/* added after demo */
+/*#objectives_container {
+	width: 785px;
+	max-height: 600px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	overflow: auto;
+	overflow-x: hidden;
+} */
+
+.expandAll,.collapseAll {
+	cursor: pointer;
+}
+
+#objectives_container   h2 {
+	background: grey url(images/arrow-square.png)
+		no-repeat right -51px;
+	margin: 0;
+	font-size: 13px;
+	font-family:  Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	color: black;
+	text-align: justify;
+	font-weight: normal;
+	width: 764px ;
+	height: 24px;
+	float:left;
+	text-transform: capitalize;
+	padding-top: 5px;
+	font-weight: bold;	
+	text-transform: capitalize;
+	border-radius: 5px;
+}
+
+#objectives_container  h2:hover {
+	background-color: #FFA400;
+	text-decoration: underline;
+	color: white !important;
+	font-weight: bold;
+}
+
+
+#objectives_container  h2.active {
+	background-position: right 5px;
+	font-weight: bold;
+	color: white;
+}
+
+#objectives_container  h2.active:hover {
+	
+	color: black !important;
+	
+}
+
+#objectiveFormButtons a {
+	background: transparent url(images/leftcurve.png)
+		no-repeat top left;
+	display: block;
+	float: left;
+	font: 11px Verdana;
+	line-height: 15px;
+	height: 22px;
+	padding-left: 8px;
+	text-decoration: none;
+}
+
+#objectiveFormButtons a span {
+	background: transparent url(images/rightcurve.png)
+		no-repeat top right;
+	display: block;
+	padding: 3px 20px 4px 10px;
+	color: white;
+	cursor: pointer;
+}

@@ -1,0 +1,119 @@
+.row {
+	width: 780px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
+.mediumContent textarea {
+	width: 620px;
+	min-height: 80px;
+	max-height: 120px;
+	margin-bottom: 10px;
+	overflow: auto;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+.smallContent textarea {
+	width: 620px;
+	min-height: 50px;
+	max-height: 120px;
+	overflow: auto;
+	margin-bottom: 10px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 12px;
+	border-radius: 10px;
+}
+
+.subTitleSmall {
+	width: 130px;
+	font-weight: 500; 
+}
+
+li {
+	list-style: none;
+}
+
+.devActivity * {
+	float: left;
+}
+
+.devActivity {
+	background-color: F5F5DC;
+	width: 764px;
+	float: left;
+	border-radius: 10px;
+}
+
+#reviewDevlpmntPlanActivities   h2 {
+	background: grey url(images/arrow-square.png)
+		no-repeat right -51px;
+	margin: 0;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;
+	cursor: pointer;
+	color: black;
+	text-align: justify;
+	font-weight: normal;
+	width: 764px;
+	float: left;
+	height: 24px;
+	text-transform: capitalize;
+	padding-top: 5px;
+	font-weight: bold;
+	text-transform: capitalize;
+	border-radius: 5px;
+}
+
+#reviewDevlpmntPlanActivities  h2:hover {
+	background-color: #CD853F;
+	text-decoration: underline;
+	color: #006CFF !important;
+	font-weight: bold;
+}
+
+#reviewDevlpmntPlanActivities  h2.active {
+	background-position: right 5px;
+	color: black;;
+}
+
+
+#reviewDevlpmntPlanActivities .row {
+	padding-left: 5px;
+}
+
+#reviewDevlpmntPlanActivities {
+	font-size: 14px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	width: 785px;
+	/*max-height: 600px;
+	overflow: auto;
+	overflow-x: hidden; */
+}
+
+#submitrow a {
+	background: transparent url('images/leftcurve.png')
+		no-repeat top left;
+	display: block;
+	float: left;
+	font: 11px Verdana;
+	line-height: 15px;
+	height: 22px;
+	padding-left: 8px;
+	text-decoration: none;
+	margin-left: 5px;
+}
+
+#submitrow a span {
+	background: transparent url('images/rightcurve.png')
+		no-repeat top right;
+	display: block;
+	padding: 3px 20px 4px 10px;
+	color: white;
+	cursor: pointer;
+}
+
+.expandAll,.collapseAll {
+	cursor: pointer;
+}

@@ -1,0 +1,112 @@
+
+.CommentsHeader { 
+	float: left;
+	height: 22px;
+	/* font-family: Comic Sans MS;
+	font-size: small; */
+	border-radius: 3px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+TextArea {
+	width: 780px;
+	height: 100px;
+	overflow: auto;
+	margin-top: 0px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+}
+
+.internalCommentsConversation{
+	width: 780px;
+	height: 300px;
+	overflow-y: auto;
+	margin-top: 0px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+	background-color: white;
+	white-space: normal !important;
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow-wrap: break-word;
+}
+
+.RatingHeader {
+	float: right;
+	width: 110px;
+	height: 22px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.RatingDropDown {
+	float: right;
+	margin-left: 50px;
+	height: 25px;
+}
+
+.appraiseSection {
+	margin-top: 10px;
+}
+
+.appraiserSection {
+	margin-top: 10px;
+}
+
+.tabName {
+	font-weight: bold;
+}
+
+.tabDescription p {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.tabDescription ul {
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+#appraisalSummaryHeading {
+	height: 20px;
+}
+
+#appraisalSummaryHeading h3 {
+	display: inline;
+	float: left;
+}
+
+#appraisalSummaryHeading #saveButtton {
+	display: inline;
+	float: right;
+}
+
+#appraisalSummaryHeading a {
+	background: transparent url('images/leftcurve.png')
+		no-repeat top left;
+	display: block;
+	float: left;
+	font: 11px Verdana;
+	line-height: 15px;
+	height: 22px;
+	padding-left: 8px;
+	text-decoration: none;
+}
+
+#appraisalSummaryHeading a span {
+	background: transparent url('images/rightcurve.png')
+		no-repeat top right;
+	display: block;
+	padding: 3px 20px 4px 10px;
+	color: white;
+	cursor: pointer;
+}
+
+p a {
+	cursor: pointer;
+	text-decoration: underline;
+	color: blue;
+}

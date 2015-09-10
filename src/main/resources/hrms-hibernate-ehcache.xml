@@ -1,0 +1,77 @@
+<ehcache>
+<!-- 
+
+Disclaimer : Cache objects, which are from master tables. 
+Don't cache objects from transactional tables i.e ReviewHeader, ReviewObjective
+
+ -->
+	<defaultCache eternal="false" overflowToDisk="false"
+		maxElementsInMemory="50000" timeToIdleSeconds="7200" timeToLiveSeconds="7200"
+		memoryStoreEvictionPolicy="LRU" />
+
+
+	<cache name="com.ggk.hrms.review.beans.domain.Employee"
+		maxElementsInMemory="5000" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="7200"
+		timeToLiveSeconds="7200" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.ProficiencyLevel"
+		maxElementsInMemory="20" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.Competency"
+		maxElementsInMemory="20" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.Project"
+		maxElementsInMemory="200" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.Grade"
+		maxElementsInMemory="50" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.Designation"
+		maxElementsInMemory="50" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+
+	<cache name="QueryCache" maxElementsInMemory="5000" eternal="false"
+		overflowToDisk="false" memoryStoreEvictionPolicy="LFU"
+		timeToIdleSeconds="86400" timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.Rating"
+		maxElementsInMemory="10" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+	<cache name="com.ggk.hrms.review.beans.domain.ReviewStatus"
+		maxElementsInMemory="15" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+
+	<cache name="com.ggk.hrms.review.beans.domain.ProficiencyLevelCompetency"
+		maxElementsInMemory="100" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+		
+		<cache name="com.ggk.hrms.review.beans.domain.FeedbackQuestion"
+		maxElementsInMemory="15" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+		
+		<cache name="com.ggk.hrms.review.beans.domain.AppraisalPeriodType"
+		maxElementsInMemory="5" eternal="false" overflowToDisk="false"
+		memoryStoreEvictionPolicy="LFU" timeToIdleSeconds="86400"
+		timeToLiveSeconds="86400" />
+
+
+
+
+</ehcache>

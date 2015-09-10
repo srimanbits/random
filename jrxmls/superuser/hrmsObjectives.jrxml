@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="hrmsObjectives" pageWidth="595" pageHeight="842" columnWidth="550" leftMargin="23" rightMargin="22" topMargin="21" bottomMargin="21" uuid="a20bad0c-722d-4456-ac27-e8b388c7852a">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="429"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="jrxmlLocation" class="java.lang.String"/>
+	<parameter name="appraise" class="java.lang.String"/>
+	<parameter name="reviewCycleName" class="java.lang.String"/>
+	<parameter name="appraiser" class="java.lang.String"/>
+	<field name="objectiveName" class="java.lang.String"/>
+	<field name="projectNames" class="java.lang.String"/>
+	<field name="detailsComment" class="java.lang.String"/>
+	<field name="successCriteriaComment" class="java.lang.String"/>
+	<field name="targetCompletionDate" class="java.util.Date"/>
+	<field name="achievmentDate" class="java.util.Date"/>
+	<field name="howYouAchievedComment" class="java.lang.String"/>
+	<field name="appraisePositiveComment" class="java.lang.String"/>
+	<field name="appraiserPositiveComment" class="java.lang.String"/>
+	<field name="appraiseNegativeComment" class="java.lang.String"/>
+	<field name="appraiseRatingStr" class="java.lang.String"/>
+	<field name="appraiserNegativeComment" class="java.lang.String"/>
+	<field name="appraiserRatingStr" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90">
+			<textField>
+				<reportElement uuid="373d1eb2-2667-4380-a183-8e9ac3a06e50" x="125" y="10" width="300" height="30"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3d56a465-b2b3-4d7b-8b38-ba2600ce934c" x="25" y="44" width="30" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="false">
+				<reportElement uuid="395d65b3-7f7a-400a-a445-f4b7242d3056" x="55" y="44" width="59" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="89a7c8ea-249f-41c0-9b97-35c7349c6b19" x="25" y="64" width="84" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<text><![CDATA[Appraisal Period :]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3a8908ef-a75e-4994-abf0-8bcd66a17247" x="109" y="64" width="125" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{reviewCycleName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bbdd2acd-36be-4022-98f2-cc6ac2698cf9" x="345" y="44" width="180" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Appraise : "+$P{appraise}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="880d5e95-410c-48c8-b6a5-62617d5a376a" x="345" y="64" width="180" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Appraiser : "+$P{appraiser}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="244b5a16-c71d-428e-a9c0-e80672c47663" x="125" y="3" width="300" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Objectives]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="568" splitType="Stretch">
+			<elementGroup>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="458bd107-e2bf-48ee-b1de-351223a27223" positionType="Float" mode="Transparent" x="25" y="3" width="100" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+						<font size="14" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Objective"+$V{REPORT_COUNT}+":"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="35b32df7-b9f4-4484-9202-38cddb1c2a84" positionType="Float" mode="Transparent" x="25" y="108" width="72" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Details :"]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+					<reportElement uuid="e6efed61-8f35-4c96-b819-28c4e73d73b2" positionType="Float" mode="Opaque" x="186" y="210" width="107" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{targetCompletionDate} != null ? $F{targetCompletionDate} : "")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="7ba25f9e-5868-4fd4-9760-4b80224a4e03" positionType="Float" mode="Opaque" x="25" y="132" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{detailsComment} != null ? $F{detailsComment} : "")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="345fcc01-d67b-42c3-922a-0192b7dd7f20" positionType="Float" mode="Transparent" x="25" y="160" width="134" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Success Criteria :"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="8450e1d9-e274-4512-af7e-40c943a2c79b" positionType="Float" mode="Opaque" x="25" y="27" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{objectiveName} != null ? $F{objectiveName} : "")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="5fc4e0ff-80b9-4276-8da9-5200ec8bc040" positionType="Float" mode="Transparent" x="25" y="56" width="123" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+					<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Project Name(s) :"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="34aae5dc-bb1b-4d9c-8d66-8083e48f0dca" positionType="Float" mode="Opaque" x="25" y="80" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{projectNames} != null ? $F{projectNames} : "")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="f51b202a-c843-4dd9-b0c5-c89201048ab4" positionType="Float" mode="Transparent" x="25" y="210" width="159" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle" markup="none">
+						<font size="13" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Target Completion Date :"]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="0e06eee4-ba9c-445b-a8f5-3cbfa0b859df" positionType="Float" mode="Opaque" x="25" y="184" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{successCriteriaComment} != null ? $F{successCriteriaComment} : "")]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement uuid="095f10db-a9a7-45a4-b8fa-abb29e163e81" positionType="Float" mode="Opaque" x="25" y="263" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($F{howYouAchievedComment} != null ? $F{howYouAchievedComment} : "")]]></textFieldExpression>
+				</textField>
+			</elementGroup>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="de840ab1-e35a-409b-a0a3-19b2e343438c" positionType="Float" mode="Transparent" x="302" y="210" width="137" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Achievement Date :"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+				<reportElement uuid="1285b6f8-48dd-4127-a7ec-4d46f3ee3f44" positionType="Float" mode="Opaque" x="442" y="210" width="95" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{achievmentDate} != null ? $F{achievmentDate} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a6b6851c-296b-4185-b7b8-7f76130efdc9" positionType="Float" mode="Transparent" x="25" y="239" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["How did you achieve the Objective? What did you do in the Project?"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="296dc27d-aae2-4c27-8b36-a749d63bb57b" positionType="Float" mode="Transparent" x="25" y="292" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["What went well ?"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="5b836b6f-6c42-426a-9fca-bea2017d6fb8" positionType="Float" mode="Opaque" x="25" y="391" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraiserPositiveComment} != null ? $F{appraiserPositiveComment} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2f4e16f2-3fd4-4f1b-8ef7-51620f1e9497" positionType="Float" mode="Opaque" x="25" y="340" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraisePositiveComment} != null ? $F{appraisePositiveComment} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="fca33022-58aa-4ba7-9a4e-465b81c3009a" positionType="Float" x="25" y="316" width="169" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraise Comments :"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="28c78803-3515-4090-9737-6da9bcdc4835" positionType="Float" x="25" y="367" width="169" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraiser Comments :"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="2826109c-f7be-4cac-86eb-92875efa4093" positionType="Float" mode="Opaque" x="25" y="517" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraiserNegativeComment} != null ? $F{appraiserNegativeComment} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="57b138ed-f6b5-46b3-a93a-217eff3ecd49" positionType="Float" mode="Transparent" x="25" y="420" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#FFFFFF"/>
+				<textElement verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["What could have been gone better ?"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a184296a-59cc-4002-b196-2d53facbd9e7" positionType="Float" x="25" y="493" width="169" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraiser Comments :"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="30eaeb03-d0db-4f79-82c2-776a4d9c0c6d" positionType="Float" x="25" y="444" width="169" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraise Comments :"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="1c78d07e-e04c-4cf2-b2bb-c9214aca6209" positionType="Float" mode="Opaque" x="25" y="468" width="512" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraiseNegativeComment} != null ? $F{appraiseNegativeComment} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="9100dc66-66d1-404e-847b-85cebbc6c36e" positionType="Float" mode="Opaque" x="413" y="542" width="125" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraiserRatingStr} != null ? $F{appraiserRatingStr} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="d9a057cb-9478-4290-a4d8-2adc41d23b24" positionType="Float" x="25" y="542" width="123" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraise Rating :"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="389eaf21-2ad0-469c-98d8-d6de56f608a8" positionType="Float" mode="Opaque" x="150" y="542" width="126" height="20" isPrintInFirstWholeBand="true" backcolor="#CCCCCC"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{appraiseRatingStr} != null ? $F{appraiseRatingStr} : "")]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="01842096-b383-4bf7-924a-b6d816ee5786" positionType="Float" x="283" y="542" width="130" height="20"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle" markup="none">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Appraiser Rating :"]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="60">
+			<image>
+				<reportElement uuid="9860ea10-92bd-4ee9-a894-bcb9a56c63ab" x="0" y="0" width="120" height="60"/>
+				<imageExpression><![CDATA[$P{jrxmlLocation}+"GGK_Tech2.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

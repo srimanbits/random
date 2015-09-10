@@ -1,0 +1,12 @@
+Add following props to hrms-properties.properties
+
+#Connection pool Properties
+
+datasource.hrms.jdbc.removeAbandoned=true
+datasource.hrms.jdbc.initialSize=30
+datasource.hrms.jdbc.maxActive=50
+
+
+Add oauth.properties adjacent to hrms-properties.properties
+
+Follow instructions in Read-Me.sql

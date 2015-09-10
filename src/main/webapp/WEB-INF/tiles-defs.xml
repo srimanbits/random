@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/jsp/layout/baseLayout.jsp">
+	<put-attribute name="reviewFormInfo" value="/WEB-INF/jsp/appraisalForm/reviewFormInfo/reviewFormInfoVO.jsp" />
+		<put-attribute name="user-body-menu" value="/WEB-INF/jsp/user/user-body-menu.jsp" />
+		<put-attribute name="manager-body-menu" value="/WEB-INF/jsp/manager/manager-body-menu.jsp" />
+		<put-attribute name="superuser-body-menu" value="/WEB-INF/jsp/super-user/superuser-body-menu.jsp" />
+	</definition>
+
+	<definition name="welcomeLayout" template="/WEB-INF/jsp/layout/welcomeLayout.jsp">
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="user-header-menu" value="/WEB-INF/jsp/user/user-header-menu.jsp" />
+		<put-attribute name="manager-header-menu" value="/WEB-INF/jsp/manager/manager-header-menu.jsp" />
+		<put-attribute name="superuser-header-menu" value="/WEB-INF/jsp/super-user/superuser-header-menu.jsp" />
+	</definition>
+
+	<definition name="user/welcome" extends="welcomeLayout">
+		<put-attribute name="welcome" value="/WEB-INF/jsp/user/welcome.jsp" />
+	</definition>
+	
+	<!-- <definition name="user/history" extends="welcomeLayout">
+		<put-attribute name="welcome" value="/WEB-INF/jsp/user/history.jsp" />
+	</definition> -->
+	
+   	<definition name="appraisalForm/reviewSummary" extends="baseLayout">
+		<put-attribute name="body-content" value="/WEB-INF/jsp/appraisalForm/summary/reviewSummary.jsp" />
+	</definition>
+	
+	<!-- PMS 2.0 Changes to open review from in new tab -->
+	
+	<definition name="masterLayout" template="/WEB-INF/jsp/layout/masterLayout.jsp">
+		<put-attribute name="reviewFormInfo" value="/WEB-INF/jsp/appraisalForm/reviewFormInfo/reviewFormInfoVO.jsp" />
+		<put-attribute name="header" value="/WEB-INF/jsp/common/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/common/footer.jsp" />
+		<put-attribute name="user-header-menu" value="/WEB-INF/jsp/user/user-header-menu.jsp" />
+		<put-attribute name="manager-header-menu" value="/WEB-INF/jsp/manager/manager-header-menu.jsp" />
+		<put-attribute name="superuser-header-menu" value="/WEB-INF/jsp/super-user/superuser-header-menu.jsp" />
+		<put-attribute name="user-body-menu" value="/WEB-INF/jsp/user/user-body-menu.jsp" />
+		<put-attribute name="manager-body-menu" value="/WEB-INF/jsp/manager/manager-body-menu.jsp" />
+		<put-attribute name="superuser-body-menu" value="/WEB-INF/jsp/super-user/superuser-body-menu.jsp" />
+	</definition>
+	
+	<definition name="appraisalForm/reviewSummaryGet" extends="masterLayout">
+		<put-attribute name="body-content" value="/WEB-INF/jsp/appraisalForm/summary/reviewSummary.jsp" />
+	</definition>
+	
+</tiles-definitions>

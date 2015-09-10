@@ -1,0 +1,164 @@
+.expandAll,.collapseAll {
+	cursor: pointer;
+}
+
+.CompetenciesForm {
+	border-radius: 10px;
+	margin-bottom: 10px;
+}
+
+.CompetenciesForm * {
+	padding-left: 2px;
+	padding-bottom: 2px;
+}
+
+
+
+.StatusInfo {
+	width: 755px;
+	border: 1px solid;
+	margin-bottom: 10px;
+	height: 20px;
+}
+
+.CompetencyHeader {
+	position: inherit;
+	width: 250px;
+	background-color: #BDBDBD;
+	text-shadow: blue;
+	/* font-weight: bolder;
+	font-size: large; */
+	border-radius: 2px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 15px;
+}
+
+.CommentsHeader {
+	/*background-color: #EFFBFB;*/
+	float: left;
+	height: 22px;
+	/* font-family: Comic Sans MS;
+	font-size: small; */
+	border-radius: 3px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+}
+
+.CompetencyDefinition {
+	width: 755px;
+	/* background-color: rgba(11, 159, 245, 0.21); */
+	/* font-family: verdana;
+	font-size: medium; */
+	overflow: auto;
+	max-height: 100px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 14px;
+}
+
+TextArea {
+	width: 750px;
+	height: 100px;
+	overflow: auto;
+	margin-top: 0px;
+	/* font-family: courier;
+	font-size: medium; */
+	border-radius: 10px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+}
+
+
+.BehaviorLabel{
+	width: 750px;
+	height: 100px;
+	margin-top: 0px;
+	/* font-family: courier;
+	font-size: medium; */
+	border-radius: 10px;
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;	
+}
+.RatingHeader {
+	float: left;
+	margin-left: 100px;
+	width: auto;
+	height: 22px;
+	background-color: #EFFBFB;
+	/* 	font-family: Comic Sans MS; */
+	/* 	font-size: small; */
+	font-family: Trebuchet MS, Gill Sans MT, Verdana;
+	font-size: 13px;
+}
+
+.RatingDropDown {
+	float: left;
+	margin-left: 50px;
+	height: 25px;
+}
+
+.appraiseSection {
+	margin-top: 10px;
+}
+
+.appraiserSection {
+	margin-top: 10px;
+}
+
+/* added after demo */
+
+.CompetenciesForm h2 {
+	background: grey url(images/arrow-square.png)
+		no-repeat right -51px;
+	margin: 0;
+	font-size: 13px;
+	font-family: Arial, Helvetica, sans-serif;/*Trebuchet MS, Gill Sans MT, Verdana;*/
+	cursor: pointer;
+	color: black;
+	text-align: justify;
+	width: 764px;
+	font-weight: normal;
+	height: 20px;
+	font-weight: bold;
+	padding-top: 5px;
+	text-transform: capitalize;
+	/*border-bottom: 1px solid #000000;*/
+	border-radius: 5px;
+}
+
+.CompetenciesForm h2:hover {
+	background-color: #FFA400;
+	color: white !important;
+	font-weight: bold;
+}
+
+.CompetenciesForm h2.active {
+	background-position: right 5px;
+	color: white;
+}
+
+.CompetenciesForm h2.active:hover {
+	color:black !important;
+
+}
+
+#competencyOptions a {
+	background: transparent url(images/leftcurve.png)
+		no-repeat top left;
+	display: block;
+	float: left;
+	font: 11px Verdana;
+	line-height: 15px;
+	height: 22px;
+	padding-left: 8px;
+	text-decoration: none;
+	
+}
+
+#competencyOptions a span {
+	background: transparent url(images/rightcurve.png)
+		no-repeat top right;
+	display: block;
+	padding: 3px 20px 4px 10px;
+	color: white;
+	cursor: pointer;
+}

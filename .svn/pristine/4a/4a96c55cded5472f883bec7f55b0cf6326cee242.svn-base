@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:security="http://www.springframework.org/schema/security"
+         xmlns="http://www.springframework.org/schema/beans"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns:oauth="http://www.springframework.org/schema/security/oauth2" 
+         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+                        http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-1.0.xsd">
+    
+     	
+    <security:http use-expressions="true" entry-point-ref="clientAuthenticationEntryPoint" auto-config="true">
+        <security:http-basic/>
+        <security:logout/>
+        <security:anonymous enabled="false"/>
+        <security:intercept-url pattern="/**" access="isFullyAuthenticated()"/>
+        <security:custom-filter ref="oauth2ClientContextFilter" after="EXCEPTION_TRANSLATION_FILTER"/>
+        <security:custom-filter ref="oAuth2AuthenticationProcessingFilter" before="FILTER_SECURITY_INTERCEPTOR"/>
+        <security:logout invalidate-session="true" logout-success-url="/authentication/mail.html" logout-url="/logout.html" />
+    </security:http>
+
+    <oauth:client id="oauth2ClientContextFilter" />
+    
+     <bean id="tokenServices" class="com.ggk.hrms.authentication.CustomTokenServices">
+        <property name="checkTokenEndpointUrl" value="${tokenEndpointURL}"/>
+        <property name="clientId" value="${clientId}"/>
+        <property name="clientSecret" value="${clientSecret}"/>
+        <property name="accessTokenConverter">
+            <bean class="com.ggk.hrms.authentication.CustomAccessTokenConverter">
+                <property name="userTokenConverter">
+                    <bean class="com.ggk.hrms.authentication.DefaultUserAuthenticationConverter">
+                          <property name="userDetailsService" ref="userDetailsServiceImpl"/>
+                        </bean>
+                </property>
+            </bean>
+        </property>
+    </bean>
+    
+	 <oauth:rest-template id="customTemplate" resource="oauthResource"/>
+	 
+	 <bean id="oAuth2AuthenticationProcessingFilter" class="org.springframework.security.oauth2.client.filter.OAuth2ClientAuthenticationProcessingFilter">
+        <constructor-arg name="defaultFilterProcessesUrl" value="/login"/>
+        <property name="restTemplate" ref="customTemplate"/>
+        <property name="tokenServices" ref="tokenServices"/>
+     </bean>   
+	 
+	<oauth:resource id="oauthResource" type="authorization_code"
+		client-id="${clientId}"
+		client-secret="${clientSecret}" access-token-uri="${tokenURI}"
+		user-authorization-uri="${authorizationURI}"
+		scope="${scope}"
+		pre-established-redirect-uri="${redirectURI}" use-current-uri="false" authentication-scheme="query" client-authentication-scheme="form"/>
+	 
+	<bean id="clientAuthenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<property name="loginFormUrl" value="/login" />
+	</bean>
+	
+	<bean id="org.springframework.security.authenticationManager" class="org.springframework.security.authentication.ProviderManager">
+		<property name="providers">
+			<list>
+				<ref local="testAuthProvider" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="testAuthProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<property name="userDetailsService" ref="userDetailsServiceImpl" />
+	</bean>
+
+	<bean id="userDetailsServiceImpl" class="com.ggk.hrms.authentication.InMemoryUserDetailsServiceImpl" />
+	
+</beans>

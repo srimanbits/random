@@ -1,0 +1,328 @@
+/* --------------General-------------- */
+h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,input,textarea {
+	padding: 0px;
+	margin: 0px;
+}
+
+#header-img {
+	float: left;
+}
+
+#header-img img{
+    cursor: pointer;
+}
+
+#logout {
+	float: right;
+}
+
+#main-out {
+	width: 100%;
+	float: left;
+}
+
+#main {
+	width: 1200px;
+	margin: 0px auto;
+}
+.readOnlyTextareaClass
+{
+   /* background-color: #F5F5DC !important;*/
+    border-color: #ddd;
+}
+
+
+/* -------------- Header --------------------*/
+#header {
+	float: left;
+	width: 1200px;
+	height: auto;
+	
+}
+
+#header-top {
+	width: 1200px;
+	height: auto;
+	float: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+/* --------------- Header menu background-color: #2590E3; ----------------- */
+#header-menu {
+	
+	width: 1200px;
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	/* border: 1px solid #000000; */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	background-color: #555555;
+/* 	background: url(images/menu_bg_image.jpg) repeat-x; */
+}
+
+#header-menu ul { 
+	/* height: 30px; */
+	list-style-type: none;
+}
+
+#header-menu .outerListElements { /* height: 30px; */
+	float: left;
+	padding-left: 10px; 
+    border-right: #ccc  1px dotted;
+	
+}
+
+#header-menu ul li a {
+	text-decoration: none;
+ 	display: block; 
+	/* height: 30px; */
+	/* float: left; */
+	padding-right: 15px;
+	padding-left: 15px;
+	color: #ccc;
+}
+
+/* changing background color on hover of outerlist elements */
+#header-menu ul li a:hover {
+	background-color: #555;
+	color: #000;
+	cursor:pointer;
+}
+
+
+
+/*for innerlist elements in reminder messages*/
+#header-menu ul li ul li a:hover {
+	background-color: #FFA400;
+	color: #000;
+	cursor:pointer;
+}
+
+
+
+
+#header-menu ul li ul {
+	visibility: hidden;
+	/* width: auto; */
+	position: absolute;
+}
+
+
+
+/*for innerlist elements in reminder messages*/
+
+#header-menu ul li ul li ul{
+	visibility: hidden;
+	/* width: auto; */
+	position: absolute;
+}
+
+
+
+#header-menu ul li ul li:hover{
+	cursor:pointer;
+}
+
+
+#header-menu ul li:hover ul {
+	visibility: visible;
+	/* display: block; */
+	
+}
+
+
+#header-menu ul li:hover li { /* float: left; */
+	/* list-style: none; */
+	/* margin: 0px; */
+	background: #555;
+	border-bottom: #ccc 1px dotted;
+	border-right: #ccc 1px dotted;
+/* 	float:left; */
+}
+
+#header-menu ul li a:hover { 
+	background: #FFA400;
+}
+
+#header-menu ul li li a {
+	color: #ffff;
+	/* display: block; */
+	width: 160px;
+}
+
+
+#header-menu ul ul ul {
+	position: absolute; left: 100%; top:0;
+}
+
+/* ----------------------- Body --------------------------------- */
+#body {
+	clear: both;
+	float: left;
+	min-height: 700px;
+	height:auto;
+	width: 1200px;
+	/*background-color: white; */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;	
+		background-color: #FFFFFF;
+}
+body{
+	
+	/*background: url(images/body-bg2.png) repeat;*/
+	/* background-color: #CDC9A7; */
+	background-color: #555;
+	margin: 0px;
+}
+
+#body-content-out {
+	min-width: 800px;/*823px*/
+	width:auto;
+	min-height:650px;
+	height:auto;
+	float: left;
+	background-color: #F4F7F5;
+	padding-bottom: 20px;
+		border-left: 1px dashed gray;
+}
+
+#body-content {
+	width: 783px;
+	margin-left:20px; 
+	margin-right:20px;
+	margin-top:20px;
+	margin-bottom:20px;
+	height: auto;
+	float: left;
+	height: inherit;
+}
+
+/* ------------------------ Body menu ---------------------------- */
+#body-menu {
+	width: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold; 
+	float: left;
+	min-height: 650px;
+	height: auto;
+	/* overflow: auto; */
+}
+
+#body-menu ul {
+	list-style-type: none;
+}
+
+
+#body-menu ul li {
+	line-height: 30px;
+	height: 30px;
+	width: 200px;
+	background-color: #555555;
+	cursor:pointer;
+		border-bottom: 1px solid #000000;
+}
+
+#body-menu ul li a {
+	text-decoration: none;
+	display: block;
+	padding-left: 21px;
+
+}
+
+ .unSelected{
+		color: white;
+}
+
+#body-menu ul li a:hover{
+ 	background-color: #FFA400; 
+	color: black;
+}
+
+.selected {
+ 	color: black !important;
+	background-color: #F4F7F5 !important;
+  
+}
+
+#body-menu ul li ul {
+	visibility: hidden;
+	position: relative;
+	margin-left: 200px;
+	top: -20px;
+}
+
+#body-menu ul li:hover ul {
+	visibility: visible;
+}
+
+#body-menu ul li:hover li { 
+	
+}
+
+#body-menu ul li:hover li a { 
+	
+}
+
+
+
+/* ---------------------------- Footer --------------------------------- */
+#footer {
+	clear: both;
+	position: static;
+	bottom: 0px;
+	float: left;
+	/* background-color: #AA1133; */
+	width: 1200px;
+	height: 15px;
+	line-height: 12px;
+	/* border: 1px solid #000000; */
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #FFF;
+	text-align: center;
+	background-image:url(/pms/common/images/Footer-Line.gif);
+	background-repeat-x: repeat;
+	/*background: url(images/menu_bg_image.jpg) repeat-x;*/
+}
+
+#footer-content {
+	
+}
+
+#footer-content p a {
+	text-decoration: none;
+	color: #000000;
+}
+
+
+/* ------------------ UI plugin related ----------------- */
+.ui-datepicker {
+	font-size: 62.5%;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana",
+		"sans-serif";
+}
+
+.ui-dialog {
+	font-size: 70.0%;
+	font-family: "Trebuchet MS", "Arial", "Helvetica", "Verdana",
+		"sans-serif";
+}
+
+
+
+/*---------------------------------Page location----------------------*/
+#pageLocation{
+	height:40px;
+	width:1200px;
+	display:block;
+	font-weight:bold;
+}
+
+
+
+.tooltip{    display: inline;    position: relative;}

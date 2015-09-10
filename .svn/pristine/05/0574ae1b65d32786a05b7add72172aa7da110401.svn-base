@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+
+	<filter>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+        <filter-class>
+            org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+        </filter-class>
+    </filter>
+
+    
+    <filter-mapping>
+        <filter-name>Spring OpenEntityManagerInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:hrms-security.xml ,
+			classpath:hrms-review-spring-datasource.xml,
+			classpath:hrms-review-beans.xml,
+			classpath:hrms-common-config.xml
+		</param-value>
+	</context-param>		
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>  
+  		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>  
+	</listener>
+
+	<servlet>
+		<servlet-name>hrms</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value> 
+				classpath:hrms-review-servlet.xml
+			</param-value>
+		</init-param>		
+		<load-on-startup>1</load-on-startup> 
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>hrms</servlet-name>
+		<url-pattern>*.html</url-pattern>
+	</servlet-mapping>
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+ 	<!-- <error-page>
+		<exception-type>com.ggk.hrms.review.exception.InvalidUserException</exception-type>
+		<location>/WEB-INF/jsp/error/invalidUser.jsp</location>
+    </error-page> 
+     -->
+    <error-page>         
+		<exception-type>javax.persistence.NoResultException</exception-type>
+		<location>/WEB-INF/jsp/error/invalidUser.jsp</location>
+    </error-page>
+    
+    <error-page>
+	    <exception-type>com.ggk.hrms.review.exception.SessionTimedOutException</exception-type>
+	    <location>/WEB-INF/jsp/error/SessionTimedOut.jsp</location>
+    </error-page>
+ <session-config>
+  <session-timeout>180</session-timeout>
+</session-config>
+
+  <error-page>
+  <error-code>401</error-code>
+  <location>/WEB-INF/jsp/error/invalidUser.jsp</location>
+</error-page>
+ <error-page>
+  <error-code>404</error-code>
+  <location>/WEB-INF/jsp/error/unAvailable.jsp</location>
+</error-page>
+<error-page>
+  <error-code>400</error-code>
+  <location>/WEB-INF/jsp/error/badRequest.jsp</location>
+</error-page>
+</web-app>

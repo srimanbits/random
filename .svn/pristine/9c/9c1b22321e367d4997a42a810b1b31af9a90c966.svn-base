@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation="
+           http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+           http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.1.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd  
+		   http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.1.xsd
+		   http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+	<!-- DAOs -->
+	<context:component-scan base-package="com.ggk.hrms.review.dao" />
+
+	<!-- Services -->
+	<context:component-scan base-package="com.ggk.hrms.review.service" />
+
+	<!-- Jobs -->
+	<context:component-scan base-package="com.ggk.hrms.review.process.job" />
+	
+
+	<!--  <cache:annotation-driven />  -->
+
+	<!-- Mailing Beans -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${prop.email.host}" />
+		<property name="username" value="${prop.email.username}"></property>
+		<property name="password" value="${prop.email.password}"></property>
+		<property name="port" value="${prop.email.port}"></property>
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="pmsToolAddress" class="java.lang.String">
+		<constructor-arg value="${prop.email.username}" />
+	</bean>
+
+	<bean id="hrmsUrl" class="java.lang.String">
+		<constructor-arg value="${prop.email.hrms.url}" />
+	</bean>
+
+	<bean id="appraisalSubmitText" class="java.lang.String">
+		<constructor-arg value="${prop.email.notify.appraisal.submitted.text}" />
+	</bean>
+
+	<bean id="appraisalReassignedText" class="java.lang.String">
+		<constructor-arg value="${prop.email.notify.appraisal.reassigned.text}" />
+	</bean>
+
+	<bean id="reviewAlias" class="java.lang.String">
+		<constructor-arg value="${prop.email.notify.appraisal.approved.to}" />
+	</bean>
+	<!-- Schedulers Beans -->
+
+	<bean name="schedulerFactory"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="reviewReminderTrigger" />
+				<ref bean="reviewFeedbackReminderTrigger" />
+			</list>
+		</property>
+		<property name="quartzProperties">
+			<props>
+				<!-- It is Default ThreadPool <prop key="org.quartz.threadPool.class">org.quartz.simpl.SimpleThreadPool</prop> -->
+				<prop key="org.quartz.threadPool.threadCount">3</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="reviewReminderTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="reviewReminderJobDetails" />
+		<property name="cronExpression" value="${prop.email.reminder.cronExpression}" />
+	</bean>
+	
+	<bean id="reviewFeedbackReminderTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="reviewFeedbackReminderJobDetails" />
+		<property name="cronExpression" value="${prop.email.feedbackReminder.cronExpression}" />
+	</bean>
+
+	<bean id="reviewReminderJobDetails"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="reviewReminderMailingJob" />
+		</property>
+		<property name="targetMethod">
+			<value>sendReminderEmail</value>
+		</property>
+		<property name="group">
+			<value>Reminder</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+	
+	<bean id="reviewFeedbackReminderJobDetails"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject">
+			<ref bean="reviewReminderMailingJob" />
+		</property>
+		<property name="targetMethod">
+			<value>sendEmailNotificationForPendingFeedback</value>
+		</property>
+		<property name="group">
+			<value>FeedbackReminder</value>
+		</property>
+		<property name="concurrent">
+			<value>false</value>
+		</property>
+	</bean>
+
+	<bean id="reviewReminderMailingJob"
+		class="com.ggk.hrms.review.process.job.ReviewReminderMailingJob" />
+	<!-- Schedulers Beans -->
+
+	<bean id="reminderNoofDaysBefore" class="java.lang.String">
+		<constructor-arg value="${prop.email.reminder.before.noofDays}" />
+	</bean>
+
+	<bean id="reminderNoofDaysAfter" class="java.lang.Integer">
+		<constructor-arg value="${prop.email.reminder.after.noofDays}" />
+	</bean>
+
+	<!-- Mailing Beans -->
+
+
+	<!-- Document locations -->
+
+	<bean id="pdfLocation" class="java.lang.String">
+		<constructor-arg value="${prop.appraisal.pdf.location}" />
+	</bean>
+
+	<bean id="jrxmlLocation" class="java.lang.String">
+		<constructor-arg value="${prop.jrxmls.location}" />
+	</bean>
+
+	<bean id="helpDocsLocation" class="java.lang.String">
+		<constructor-arg value="${prop.helpDocs.location}" />
+	</bean>
+
+	<bean id="toolKitLocation" class="java.lang.String">
+		<constructor-arg value="${prop.managementToolKit.location}" />
+	</bean>
+	<!-- End of document locations -->
+
+	<!-- Cache beans -->
+
+	  <!-- <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
+		<property name="cacheManager" ref="ehcache" />
+	</bean>
+	<bean id="ehcache"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:hrms-review-cache.xml" />
+		<property name="shared" value="true" />
+	</bean>   -->
+	
+	<bean id="onoInterval" class="java.lang.Long">
+		<constructor-arg value="${prop.ono.interval}" />
+	</bean>
+	
+	<bean id="scrollingNotificationMsg" class="java.lang.String">
+		<constructor-arg value="${prop.notification.message}" />
+	</bean>
+	
+	<!-- Super User PDF location -->
+	
+	<bean id="superUserPdfLocation" class="java.lang.String">
+		<constructor-arg value="${prop.superuser.appraisal.pdf.location}" />
+	</bean>
+
+	<bean id="superUserJrxmlLocation" class="java.lang.String">
+		<constructor-arg value="${prop.superuser.jrxmls.location}" />
+	</bean>
+	
+
+</beans>
